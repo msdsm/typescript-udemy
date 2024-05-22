@@ -62,3 +62,14 @@ value = 1;
 let arrayUni: (number | string)[];
 arrayUni = [0, 1, 2, "hello"];
 ```
+
+
+## Literal Types
+```
+let company: "Facebook" | "Google" | "Amazon"
+company = "Amazon"
+// company = "Apple"; // error
+let memory: 256 | 512;
+memory = 256;
+// memory = 12; // error
+```
