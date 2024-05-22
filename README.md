@@ -200,5 +200,46 @@ const funcGen4 = <T extends Props>(props: T) => {
 
 ## JSON型推論
 ```ts
-
+import Data from "./data.json" // jsonファイル読み込み
+type USERS = typeof Data; // それをもとにtype作成
 ```
+
+## React Hooks Props型
+- React.FCはReactのFunctional Component型のこと
+- rafceでFunctional Componentのテンプレートをvscodeで使える
+```ts
+// propsの型明示
+// TestComponent.tsx
+interface Props {
+    text: string
+}
+
+// genericsの利用によって引数の型を明示できる(React.FCがジェネリクスで宣言されている)
+const TestComponent: React.FC<Props> = (props) => {
+  return (
+    <div>
+      <h1>{props.text}</h1>
+    </div>
+  )
+}
+
+export default TestComponent
+```
+```ts
+// App.tsx
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <TestComponent text="hello from app"/>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+```
+
+## React Hooks useState
+
+## Event handler:データ型
