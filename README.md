@@ -1,4 +1,7 @@
 # typescript-udemy
+- 最速で学ぶTypeScript
+## ソース
+- https://www.udemy.com/course/typescript-react-frontend/
 
 ## TypeScriptのデータ型
 ```ts
@@ -143,4 +146,59 @@ let funcComp1 = (x: number) => {};
 let funcComp2 = (x: string) => {};
 
 // funcComp1 = funcComp2 // 引数の型が違うためerror
+```
+
+
+## Generics
+```ts
+interface GEN<T> {
+  item: T;
+}
+const gen0: GEN<string> = {item: "hello"};
+// const gen1: GEN = {item: "hello"}; // error
+// const gen2: GEN<number> = {item: 12}; // error
+
+// デフォルトの型を設定
+interface GEN<T = string> {
+  item: T;
+}
+const gen3: GEN = {item: "hello"}; // デフォルト型を指定しているのでこれはerrorにならない
+
+interface GEN2<T extends string | number> {
+  item: T;
+}
+const gen4: GEN2<string> = {item: "hello"};
+const gen5: GEN2<number> = {item: 1};
+// const gen6: GEN2<boolean> = {item: true}; // error
+
+function funcGen<T>(props: T) {
+  return {item: props}
+}
+const gen6 = funcGen("test"); // 関数ジェネリクスの場合は引数に渡すと型を推論してくれるためfuncGen<string>と明示する必要ない
+const gen7 = funcGen<string | null>(null);
+
+function funcGen1<T extends string | null>(props: T) {
+  return {value: props}
+}
+const gen8 = funcGen1("hello");
+// const gen9 = funcGen1(1); // error
+const gen10 = funcGen1(null);
+
+interface Props {
+  price: number;
+}
+function funcGen3<T extends Props>(props: T) {
+  return {value: props.price}
+}
+const gen11 = funcGen3({price: 10});
+
+// アロー関数で書く場合
+const funcGen4 = <T extends Props>(props: T) => {
+  return {value: props.price};
+}
+```
+
+## JSON型推論
+```ts
+
 ```
