@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
 /* TypeScriptのデータ型*/
 const name = "hello";
 // name = "hello2"; // できない
@@ -183,6 +184,10 @@ const gen11 = funcGen3({price: 10});
 const funcGen4 = <T extends Props>(props: T) => {
   return {value: props.price};
 }
+
+/* JSON型推論(typeofの使用例) */
+import Data from "./data.json" // jsonファイル読み込み
+type USERS = typeof Data; // それをもとにtype作成
 
 function App() {
   return (
