@@ -84,3 +84,63 @@ msg2 = "abc";
 let animal = {cat: "small cat"};
 let newAnimal: typeof animal = {cat: "big cat"};
 ```
+- jsonなどで非常に便利
+
+## keyof
+```ts
+type KEYS = {
+  primary: string;
+  secondary: string;
+};
+let key: keyof KEYS; // オブジェクトのキーを文字列のUnion Typeで取り出せる
+key = "primary";
+key = "secondary";
+// key = "a"; // error
+
+// typeof + keyof
+const SPORTS = {
+  soccer: "Soccer",
+  baseball: "Baseball",
+};
+
+let keySports: keyof typeof SPORTS; // SPORTSのtypeofでオブジェクト型になって、それに対してkeyofを適用
+keySports = "soccer";
+// keySports = "b"; // error
+```
+
+
+## enum
+```ts
+enum OS {
+  Windows,
+  Mac,
+  Linux,
+}
+interface PC {
+  id: number;
+  OSType: OS;
+}
+const PC1: PC = {
+  id: 1,
+  OSType: OS.Windows,
+};
+const PC2: PC = {
+  id: 2,
+  OSType: OS.Mac,
+};
+```
+
+
+## 型の互換性
+```ts
+const comp1 = "test";
+let comp2: string = comp1; // これはok
+
+let comp3: string = "test";
+// let comp4: "test" = comp3; // error(文字列リテラル型に対して変数の値を参照する式)
+
+let funcComp1 = (x: number) => {};
+let funcComp2 = (x: string) => {};
+
+// funcComp1 = funcComp2 // 引数の型が違うためerror
+```
