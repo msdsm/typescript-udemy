@@ -1,9 +1,32 @@
 # typescript-udemy
 - 最速で学ぶTypeScript
-## ソース
+
+<!-- vscode-markdown-toc -->
+* 1. [ソース](#)
+* 2. [TypeScriptのデータ型](#TypeScript)
+* 3. [Intersection Types](#IntersectionTypes)
+* 4. [UnionTypes](#UnionTypes)
+* 5. [Literal Types](#LiteralTypes)
+* 6. [typeof](#typeof)
+* 7. [keyof](#keyof)
+* 8. [enum](#enum)
+* 9. [型の互換性](#-1)
+* 10. [Generics](#Generics)
+* 11. [JSON型推論](#JSON)
+* 12. [React Hooks Props型](#ReactHooksProps)
+* 13. [React Hooks useState](#ReactHooksuseState)
+* 14. [Event handler:データ型](#Eventhandler:)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+##  1. <a name=''></a>ソース
 - https://www.udemy.com/course/typescript-react-frontend/
 
-## TypeScriptのデータ型
+##  2. <a name='TypeScript'></a>TypeScriptのデータ型
 ```ts
 const name = "hello";
 // name = "hello2"; // できない
@@ -32,7 +55,7 @@ const func1 = (x: number, y: number):number => {
 }
 ```
 
-## Intersection Types
+##  3. <a name='IntersectionTypes'></a>Intersection Types
 ```ts
 type PROFILE = {
   age: number;
@@ -55,7 +78,7 @@ const userA: USER = {
 };
 ```
 
-## UnionTypes
+##  4. <a name='UnionTypes'></a>UnionTypes
 ```ts
 let value : boolean | number;
 value = true;
@@ -67,7 +90,7 @@ arrayUni = [0, 1, 2, "hello"];
 ```
 
 
-## Literal Types
+##  5. <a name='LiteralTypes'></a>Literal Types
 ```ts
 let company: "Facebook" | "Google" | "Amazon"
 company = "Amazon"
@@ -77,7 +100,7 @@ memory = 256;
 // memory = 12; // error
 ```
 
-## typeof
+##  6. <a name='typeof'></a>typeof
 ```ts
 let msg: string = "Hi";
 let msg2: typeof msg; // msg2の型をmsg1と同じ型にする
@@ -89,7 +112,7 @@ let newAnimal: typeof animal = {cat: "big cat"};
 ```
 - jsonなどで非常に便利
 
-## keyof
+##  7. <a name='keyof'></a>keyof
 ```ts
 type KEYS = {
   primary: string;
@@ -112,7 +135,7 @@ keySports = "soccer";
 ```
 
 
-## enum
+##  8. <a name='enum'></a>enum
 ```ts
 enum OS {
   Windows,
@@ -134,7 +157,7 @@ const PC2: PC = {
 ```
 
 
-## 型の互換性
+##  9. <a name='-1'></a>型の互換性
 ```ts
 const comp1 = "test";
 let comp2: string = comp1; // これはok
@@ -149,7 +172,7 @@ let funcComp2 = (x: string) => {};
 ```
 
 
-## Generics
+##  10. <a name='Generics'></a>Generics
 ```ts
 interface GEN<T> {
   item: T;
@@ -198,13 +221,13 @@ const funcGen4 = <T extends Props>(props: T) => {
 }
 ```
 
-## JSON型推論
+##  11. <a name='JSON'></a>JSON型推論
 ```ts
 import Data from "./data.json" // jsonファイル読み込み
 type USERS = typeof Data; // それをもとにtype作成
 ```
 
-## React Hooks Props型
+##  12. <a name='ReactHooksProps'></a>React Hooks Props型
 - React.FCはReactのFunctional Component型のこと
 - rafceでFunctional Componentのテンプレートをvscodeで使える
 ```ts
@@ -240,7 +263,7 @@ const App: React.FC = () => {
 export default App;
 ```
 
-## React Hooks useState
+##  13. <a name='ReactHooksuseState'></a>React Hooks useState
 ```ts
 // TestComponent.tsx
 import React, { useState } from 'react'
@@ -286,7 +309,7 @@ const App: React.FC = () => {
 export default App;
 ```
 
-## Event handler:データ型
+##  14. <a name='Eventhandler:'></a>Event handler:データ型
 - Eventの型を明示するときは、vscodeの機能を使うと便利
 - 今回の場合だと、handleInputChangeの引数の型を明示するときにonChangeにカーソルをあてて表示される型をコピペ
   - React.ChangeEvent<HTMLInputElement>
