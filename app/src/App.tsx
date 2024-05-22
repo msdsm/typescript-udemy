@@ -71,6 +71,17 @@ let memory: 256 | 512;
 memory = 256;
 // memory = 12; // error
 
+
+/* typeof */
+let msg: string = "Hi";
+let msg2: typeof msg; // msg2の型をmsg1と同じ型にする
+// msg2 = 1; // error
+msg2 = "abc";
+
+let animal = {cat: "small cat"};
+let newAnimal: typeof animal = {cat: "big cat"};
+
+
 function App() {
   return (
     <div className="App">

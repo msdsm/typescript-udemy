@@ -65,11 +65,22 @@ arrayUni = [0, 1, 2, "hello"];
 
 
 ## Literal Types
-```
+```ts
 let company: "Facebook" | "Google" | "Amazon"
 company = "Amazon"
 // company = "Apple"; // error
 let memory: 256 | 512;
 memory = 256;
 // memory = 12; // error
+```
+
+## typeof
+```ts
+let msg: string = "Hi";
+let msg2: typeof msg; // msg2の型をmsg1と同じ型にする
+// msg2 = 1; // error
+msg2 = "abc";
+
+let animal = {cat: "small cat"};
+let newAnimal: typeof animal = {cat: "big cat"};
 ```
