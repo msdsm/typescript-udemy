@@ -15,7 +15,7 @@
 * 11. [JSON型推論](#JSON)
 * 12. [React Hooks Props型](#ReactHooksProps)
 * 13. [React Hooks useState](#ReactHooksuseState)
-* 14. [Event handler:データ型](#Eventhandler:)
+* 14. [Event handler:データ型](#Eventhandler)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -309,7 +309,7 @@ const App: React.FC = () => {
 export default App;
 ```
 
-##  14. <a name='Eventhandler:'></a>Event handler:データ型
+##  14. <a name='Eventhandler'></a>Event handler:データ型
 - Eventの型を明示するときは、vscodeの機能を使うと便利
 - 今回の場合だと、handleInputChangeの引数の型を明示するときにonChangeにカーソルをあてて表示される型をコピペ
   - React.ChangeEvent<HTMLInputElement>
