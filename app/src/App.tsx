@@ -1,7 +1,8 @@
-# typescript-udemy
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-## TypeScriptのデータ型
-```ts
+/* TypeScriptのデータ型*/
 const name = "hello";
 // name = "hello2"; // できない
 let nameChange = "hello";
@@ -27,10 +28,11 @@ let nameObj2: NAME = {first: "a", last: null};
 const func1 = (x: number, y: number):number => {
   return x + y;
 }
-```
 
-## Intersection Types
-```ts
+
+
+
+/* Intersection Types */
 type PROFILE = {
   age: number;
   city: string;
@@ -50,10 +52,8 @@ const userA: USER = {
   username: "xxx",
   password: "yyy",
 };
-```
 
-## UnionTypes
-```ts
+/* Union Types */
 let value : boolean | number;
 value = true;
 value = 1;
@@ -61,4 +61,26 @@ value = 1;
 // number型またはstring型をもつ配列
 let arrayUni: (number | string)[];
 arrayUni = [0, 1, 2, "hello"];
-```
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
